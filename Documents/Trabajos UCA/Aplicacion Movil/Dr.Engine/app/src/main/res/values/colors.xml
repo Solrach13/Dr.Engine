@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="superFondo">#2B333E</color>
+    <color name="toolBar">#0f3365</color>
+    <color name="Blanco">#ffffff</color>
+    <color name="Gclaro">#979FA3</color>
+    <color name="Goscuro">#1d1d1d</color>
 </resources>
