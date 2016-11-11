@@ -19,25 +19,6 @@
             android:theme="@style/AppTheme">
 
         </activity>
-        <activity
-            android:name=".PrimeraPantalla"
-            android:label="@string/title_activity_primera_pantalla"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".SegundaPantalla"
-            android:label="@string/title_activity_segunda_pantalla"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".LoginActivity"
-            android:label="Dr.Engine">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
     </application>
 
 </manifest>

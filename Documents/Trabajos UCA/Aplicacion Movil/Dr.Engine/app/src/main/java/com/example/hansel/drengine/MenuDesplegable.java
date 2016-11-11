@@ -88,13 +88,11 @@ public class MenuDesplegable extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
 
-            Intent intent = new Intent(MenuDesplegable.this, PrimeraPantalla.class);
-            startActivity(intent);
+
 
         } else if (id == R.id.nav_gallery) {
 
-            Intent intent = new Intent(MenuDesplegable.this, SegundaPantalla.class);
-            startActivity(intent);
+
 
         } else if (id == R.id.nav_slideshow) {
 
