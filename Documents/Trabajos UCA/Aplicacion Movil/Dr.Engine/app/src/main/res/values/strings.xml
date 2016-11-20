@@ -26,4 +26,7 @@
     </string>
     <string name="consejo1">Por lo menos 1 al año para evitar una vista borrosa durante las épocas de lluvia.</string>
     <string name="Dr_engine1">Hala el picaporte interior del capó, este suele situarse cerca del aciento del conductor o debajo del volante.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

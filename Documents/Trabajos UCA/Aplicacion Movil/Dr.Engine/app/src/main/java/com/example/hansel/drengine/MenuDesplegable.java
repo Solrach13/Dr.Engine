@@ -1,9 +1,18 @@
 package com.example.hansel.drengine;
 
+
 import android.content.Intent;
+import android.net.Uri;
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,15 +24,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
 
-public class MenuDesplegable extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+import static android.R.attr.onClick;
+import static android.R.attr.targetActivity;
 
+public class MenuDesplegable extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+
+
+    ImageButton home;
+    DrawerLayout mDrawerLayout;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_desplegable);
+
+
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
 
@@ -36,15 +53,32 @@ public class MenuDesplegable extends AppCompatActivity
             }
         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        //DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         //ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 //this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         //drawer.setDrawerListener(toggle);
         //toggle.syncState();
 
+
+        home = (ImageButton) findViewById(R.id.Bhome);
+
+
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        Fragment fragment = Fragment_1.getInstace();
+        mostrarFragment(fragment);
+
+
+
+
+
     }
+
+
+
+
 
     @Override
     public void onBackPressed() {
@@ -87,7 +121,13 @@ public class MenuDesplegable extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
+            //Fragment Numero 1
 
+            //Fragment fragment = Fragment_1.getInstace();
+            //mostrarFragment(fragment);
+
+            Fragment fragment2 = Fragment_2.newInstance("Texto1","Texto2");
+            mostrarFragment(fragment2);
 
 
         } else if (id == R.id.nav_gallery) {
@@ -110,4 +150,31 @@ public class MenuDesplegable extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+
+
+    public void openDrawer (){
+
+        mDrawerLayout.openDrawer(Gravity.LEFT);
+
+    }
+
+    public void mostrarFragment(Fragment fragment){
+      FragmentManager fragmentManager = getSupportFragmentManager();
+      FragmentTransaction transaction = fragmentManager.beginTransaction();
+      transaction.replace(R.id.fap, fragment);
+      transaction.addToBackStack(null);
+      transaction.commit();
+
+
+
+
+
+
+  }
+
 }
