@@ -1,13 +1,57 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_tercera_pantalla"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.hansel.drengine.Fragment_3">
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.hansel.drengine.MenuDesplegable"
+    android:background="@color/superFondo"
 
-    <!-- TODO: Update blank fragment layout -->
+    >
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/paso1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Paso 1"
+        android:textColor="@color/Blanco"
+        android:textSize="20sp"
+        android:layout_marginTop="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
-</FrameLayout>
+    <ImageView
+        android:layout_marginTop="8dp"
+        android:layout_below="@id/paso1"
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+
+        android:layout_height="200dp"
+        android:background="@drawable/solucion1" />
+
+    <TextView
+        android:layout_marginTop="27dp"
+        android:layout_below="@id/img"
+        android:id="@+id/texto"
+        android:textSize="29sp"
+        android:textColor="@color/Gclaro"
+        android:text="@string/Dr_engine1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_marginTop="-23dp"
+        android:layout_below="@id/texto"
+        android:layout_width="110dp"
+        android:text="Siguiente"
+        android:layout_marginLeft="200dp"
+        android:layout_height="39dp" />
+
+
+</RelativeLayout>

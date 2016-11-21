@@ -132,13 +132,18 @@ public class MenuDesplegable extends AppCompatActivity
 
         } else if (id == R.id.nav_gallery) {
 
-
+            Fragment fragment3 = Fragment_3.newInstance("Texto1","Texto2");
+            mostrarFragment(fragment3);
 
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
+
+            Intent intent = new Intent(MenuDesplegable.this, MapsActivity.class);
+            startActivity(intent);
+
 
         } else if (id == R.id.nav_send) {
 
@@ -176,5 +181,6 @@ public class MenuDesplegable extends AppCompatActivity
 
 
   }
+
 
 }
