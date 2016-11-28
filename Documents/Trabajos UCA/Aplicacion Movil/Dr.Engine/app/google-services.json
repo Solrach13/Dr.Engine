@@ -1,0 +1,53 @@
+{
+  "project_info": {
+    "project_number": "66429211959",
+    "firebase_url": "https://dr-engine.firebaseio.com",
+    "project_id": "dr-engine",
+    "storage_bucket": "dr-engine.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:66429211959:android:5482a597f227ae86",
+        "android_client_info": {
+          "package_name": "com.example.hansel.drengine"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "66429211959-nm5olqg1p20j49vd2e2kiq59c6hrm7og.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hansel.drengine",
+            "certificate_hash": "A4F8B5635285695F94BF2BE2D6C1FDD97FE0D600"
+          }
+        },
+        {
+          "client_id": "66429211959-ktet50r6vfkie5v8bdkrm7icb1vouaam.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [{
+          "current_key": "AIzaSyBD2-5xmbcCYau8R0iWH4oFdv-IuiUDWSw"
+        }],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "66429211959-ktet50r6vfkie5v8bdkrm7icb1vouaam.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

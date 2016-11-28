@@ -23,6 +23,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
+import android.widget.TextView;
+
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 import static android.R.attr.onClick;
 import static android.R.attr.targetActivity;
@@ -30,16 +36,48 @@ import static android.R.attr.targetActivity;
 public class MenuDesplegable extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
+    private String FIRE_BASE_URL = "https://dr-engine.firebaseio.com";
+    private String FIREBASE_CHILD = "dr-engine";
+    Firebase firebase;
 
     ImageButton home;
     DrawerLayout mDrawerLayout;
 
+    String datos[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_desplegable);
+        Firebase.setAndroidContext(this);
+        firebase = new Firebase(FIRE_BASE_URL).child(FIREBASE_CHILD);
 
+
+        firebase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for(int i = 0; i<2; i++)
+                {
+                   datos[i] = dataSnapshot.getValue().toString();
+                    TextView txtCambiado = (TextView)findViewById(R.id.texto16);
+                    txtCambiado.setText(datos[0]);
+
+                    TextView txtCambiado2 = (TextView)findViewById(R.id.texto15);
+                    txtCambiado2.setText(datos[1]);
+
+                    TextView txtCambiado3 = (TextView)findViewById(R.id.texto14);
+                    txtCambiado3.setText(datos[2]);
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
@@ -67,9 +105,9 @@ public class MenuDesplegable extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
         Fragment fragment = Fragment_1.getInstace();
         mostrarFragment(fragment);
-
 
 
 
@@ -137,7 +175,15 @@ public class MenuDesplegable extends AppCompatActivity
 
         } else if (id == R.id.nav_slideshow) {
 
+            Fragment fragment5 = Fragment_5.getInstance();
+            mostrarFragment(fragment5);
+
+
         } else if (id == R.id.nav_manage) {
+
+            Fragment fragment4 = Fragment_4.getInstance();
+            mostrarFragment(fragment4);
+
 
         } else if (id == R.id.nav_share) {
 
@@ -146,6 +192,9 @@ public class MenuDesplegable extends AppCompatActivity
 
 
         } else if (id == R.id.nav_send) {
+
+            Fragment fragment6 = Fragment_6.getInstance();
+            mostrarFragment(fragment6);
 
         } else if (id == R.id.nav_ajustes) {
 
@@ -181,6 +230,7 @@ public class MenuDesplegable extends AppCompatActivity
 
 
   }
+
 
 
 }
