@@ -4,12 +4,14 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
+import android.telecom.TelecomManager;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.firebase.client.Firebase;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,7 +24,7 @@ import com.google.firebase.auth.FirebaseUser;
 
     public class Fragment_5 extends Fragment{
 
-
+    static TextView mDiesel;
     public Fragment_5(){
 
 
@@ -42,9 +44,16 @@ import com.google.firebase.auth.FirebaseUser;
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_quinta_pantalla, container, false);
 
-
+        mDiesel = (TextView) view.findViewById(R.id.diesel);
 
 
         return view;
     }
+
+    public static void setDiesel(String value){
+
+        mDiesel.setText(value);
+
+    }
+
 }

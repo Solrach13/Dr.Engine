@@ -142,10 +142,10 @@
             android:layout_alignBottom="@+id/texto12" />
 
         <TextView
-            android:id="@+id/texto16"
+            android:id="@+id/diesel"
             android:layout_height="wrap_content"
             android:textSize="25sp"
-            android:text="---"
+
             android:textColor="@color/Blanco"
             android:layout_width="50dp"
             android:layout_alignParentTop="true"

@@ -12,6 +12,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -29,7 +30,11 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import static android.R.attr.data;
 import static android.R.attr.onClick;
 import static android.R.attr.targetActivity;
 
@@ -45,39 +50,35 @@ public class MenuDesplegable extends AppCompatActivity
 
     String datos[];
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_desplegable);
-        Firebase.setAndroidContext(this);
-        firebase = new Firebase(FIRE_BASE_URL).child(FIREBASE_CHILD);
+        //Firebase.setAndroidContext(this);
+        //firebase = new Firebase(FIRE_BASE_URL);
 
 
-        firebase.addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference(Fobject.DIESEL);
+        myRef.addValueEventListener(new com.google.firebase.database.ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {
 
-                for(int i = 0; i<2; i++)
-                {
-                   datos[i] = dataSnapshot.getValue().toString();
-                    TextView txtCambiado = (TextView)findViewById(R.id.texto16);
-                    txtCambiado.setText(datos[0]);
+            String valor = dataSnapshot.getValue(String.class);
+                Fragment_1.setDiesel(valor);
 
-                    TextView txtCambiado2 = (TextView)findViewById(R.id.texto15);
-                    txtCambiado2.setText(datos[1]);
 
-                    TextView txtCambiado3 = (TextView)findViewById(R.id.texto14);
-                    txtCambiado3.setText(datos[2]);
 
-                }
 
             }
 
             @Override
-            public void onCancelled(FirebaseError firebaseError) {
+            public void onCancelled(DatabaseError databaseError) {
 
             }
         });
+
 
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
