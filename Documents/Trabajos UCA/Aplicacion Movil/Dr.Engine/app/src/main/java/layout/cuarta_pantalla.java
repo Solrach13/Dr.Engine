@@ -10,47 +10,18 @@ import android.view.ViewGroup;
 
 import com.example.hansel.drengine.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link cuarta_pantalla.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link cuarta_pantalla#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class cuarta_pantalla extends Fragment {
 
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class Cuarta_Pantalla extends Fragment {
 
 
-    private String mParam1;
-    private String mParam2;
+    public Cuarta_pantalla() {
 
-    private OnFragmentInteractionListener mListener;
+        public static Cuarta_Pantalla getInstace(){
 
-    public cuarta_pantalla() {
-        // Required empty public constructor
-    }
+            Cuarta_Pantalla fragment = new CuartaPantalla ();
+            return fragment;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment cuarta_pantalla.
-     */
-
-    public static cuarta_pantalla newInstance(String param1, String param2) {
-        cuarta_pantalla fragment = new cuarta_pantalla();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+        }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
