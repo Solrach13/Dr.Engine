@@ -43,11 +43,6 @@ public class Fragment_1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_1_layout, container, false);
         mDiesel = (TextView) view.findViewById(R.id.texto5);
-
-   /*     bDrawer = (ImageButton)  view.findViewById(R.id.Bmenu);
-        mDrawerLayout = (DrawerLayout) getActivity().findViewById(R.id.drawer_layout);
-        bDrawer.setOnClickListener(this);
-*/
         return view;
 
     }
