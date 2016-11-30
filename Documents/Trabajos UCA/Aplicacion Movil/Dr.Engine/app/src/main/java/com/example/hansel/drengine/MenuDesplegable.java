@@ -26,13 +26,12 @@ import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.firebase.client.DataSnapshot;
-import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
+
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import static android.R.attr.data;
 import static android.R.attr.onClick;
@@ -43,7 +42,7 @@ public class MenuDesplegable extends AppCompatActivity
 
     private String FIRE_BASE_URL = "https://dr-engine.firebaseio.com";
     private String FIREBASE_CHILD = "dr-engine";
-    Firebase firebase;
+
 
     ImageButton home;
     DrawerLayout mDrawerLayout;
@@ -60,16 +59,14 @@ public class MenuDesplegable extends AppCompatActivity
 
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference(Fobject.DIESEL);
-        myRef.addValueEventListener(new com.google.firebase.database.ValueEventListener() {
+        DatabaseReference myRef = database.getReference(Fobject.ESTADO);
+        myRef.child(Fobject.COMBUSTIBLE_REFERENCE).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {
-
-            String valor = dataSnapshot.getValue(String.class);
-                Fragment_1.setDiesel(valor);
-
-
-
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Combustibles combustibles = dataSnapshot.getValue(Combustibles.class);
+                Fragment_1.setSuper(combustibles.getGsuper());
+                Fragment_1.setDiesel(combustibles.getDiesel());
+                Fragment_1.setRegular(combustibles.getRegular());
 
             }
 

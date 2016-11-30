@@ -6,16 +6,16 @@ package com.example.hansel.drengine;
 
 class Combustibles {
 
-    String diesel = "21,33";
-    String Gsuper = "24,12";
-    String regular = "23,79";
+    String diesel;
+    String gsuper;
+    String regular;
 
     public Combustibles() {
     }
 
     public Combustibles(String diesel, String gsuper, String regular) {
         this.diesel = diesel;
-        Gsuper = gsuper;
+        this.gsuper = gsuper;
         this.regular = regular;
     }
 
@@ -24,7 +24,7 @@ class Combustibles {
     }
 
     public String getGsuper() {
-        return Gsuper;
+        return gsuper;
     }
 
     public String getRegular() {
@@ -36,7 +36,7 @@ class Combustibles {
     }
 
     public void setGsuper(String gsuper) {
-        Gsuper = gsuper;
+        this.gsuper = gsuper;
     }
 
     public void setRegular(String regular) {
