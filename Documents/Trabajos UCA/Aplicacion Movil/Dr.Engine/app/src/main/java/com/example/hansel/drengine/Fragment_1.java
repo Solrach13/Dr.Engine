@@ -19,7 +19,7 @@ import android.widget.TextView;
 
 public class Fragment_1 extends Fragment {
 
-    static TextView mDiesel;
+    static TextView mSuper, mDiesel, mRegular;
     ImageButton bDrawer;
     DrawerLayout mDrawerLayout;
     ListView mDrawerList;
@@ -42,14 +42,31 @@ public class Fragment_1 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_1_layout, container, false);
-        mDiesel = (TextView) view.findViewById(R.id.texto5);
+        mSuper = (TextView) view.findViewById(R.id.txtSuper);
+        mDiesel = (TextView) view.findViewById(R.id.txtDiesel);
+        mRegular = (TextView) view.findViewById(R.id.txtRegular);
+
+
         return view;
 
     }
 
-    public static void setDiesel(String value){
+    public static void setSuper(String value){
 
-        mDiesel.setText(value);
+        mSuper.setText(value);
+
+    }
+
+    public static void setRegular(String value2){
+
+        mDiesel.setText(value2);
+
+
+    }
+
+    public static void setDiesel(String value3){
+        mRegular.setText(value3);
+
 
     }
 

@@ -6,8 +6,11 @@ package com.example.hansel.drengine;
 
 public class Fobject {
 
-  final public static String DIESEL = "diesel";
-  final public static String SUPER = "super";
+  final public static String ESTADO = "Estado";
+  final public static String COMBUSTIBLE_REFERENCE = "combustible";
+
+
+
 
 
 }
